@@ -1,3 +1,10 @@
+datos/GOES/*/
+src/__pycache__/
+salidas/*/*/
+slurm-*
+*.log
+*.pyc
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -127,3 +134,14 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+**/.idea/
+**/temp/*
+**/logs/*.log
+**/test_*.sh
+.vscode/
+
+src/ipython_preload_*.py
+src/test_*.*
+**/*.env
+secret.sh
