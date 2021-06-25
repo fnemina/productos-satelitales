@@ -144,4 +144,4 @@ dmypy.json
 src/ipython_preload_*.py
 src/test_*.*
 **/*.env
-secret.sh
+src/secret.sh
