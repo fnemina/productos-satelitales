@@ -29,6 +29,7 @@ from config.constants import PRODUCTS, CHANNELS, MAPAS, NOAA_GOES16_PATH
 from config.logging_conf import GOES_LOGGER_NAME, get_logger_from_config_file
 from plotters_lib.adec_plotter import plot_lst_heladas
 from plotters_lib.fire_temp_rgb732 import graficar_fire_temp
+from plotters_lib.graficar_geocolor import graficar_geocolor
 
 logger = get_logger_from_config_file(GOES_LOGGER_NAME)
 
@@ -60,16 +61,21 @@ def generar_imagenes(fecha_cod):
         for canal in CHANNELS:
             if canal == "C03":
                 logger.info("Generando imagenes para GeoColor")
-                pool.apply_async(plot.geocolor, (fecha, canales, NOAA_GOES16_PATH, MAPAS))
+                # TODO: remove basemap - done - check graficar_geocolor.py
+                pool.apply_async(graficar_geocolor, (fecha, canales, NOAA_GOES16_PATH, MAPAS))
+                # TODO: TBC - file LOGO_FIRE missing.
                 pool.apply_async(graficar_fire_temp, (fecha, canales, NOAA_GOES16_PATH, MAPAS))
             elif canal == "C01" or canal == "C02" or canal == "C07":
                 continue
             else:
                 logger.info(f"Generando imagenes para {canales[canal].nombre}")
+                # TODO: remove basemap - done - adhoc colorbar - 0.6imratio
                 pool.apply_async(plot_channel, (canales[canal], fecha, NOAA_GOES16_PATH, MAPAS))
     logger.info(f"Generando imagenes para webmet de {canales['C13'].nombre}")
+    # TODO: remove basemap -  check graficar_webmet.py
     pool.apply_async(canales['C13'].plot_webmet, (fecha, NOAA_GOES16_PATH, MAPAS))
     logger.info("Generando grafico LST y heladas")
+    # TODO: shapefiles adec are missing
     pool.apply_async(plot_lst_heladas, (fecha, NOAA_GOES16_PATH, MAPAS))
     logger.info("Cerrando pool.")
     pool.close()

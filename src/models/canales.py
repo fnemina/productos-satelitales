@@ -3,6 +3,7 @@ import logging
 import os
 import time
 import plotters_lib.plot as plot
+from plotters_lib.graficar_webmet import generar_imagen_webmet
 import errno
 
 from config.constants import DOWNLOAD_MAX_TRY, DOWNLOAD_SLEEP_TRY, GOES_STATICS
@@ -73,7 +74,7 @@ class Canal:
                               'Z_C' + str(metadatos['icanal']) + '.png'):
                 continue
             logger.info(f'Generando imagen de webmet para {file}')
-            plot.generar_imagen_webmet(
+            generar_imagen_webmet(
                 _datos + '/' + path_fecha + self.codigo + '/' + file,
                 metadatos,
                 path_imagenes,

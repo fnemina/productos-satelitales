@@ -3,7 +3,8 @@ import logging
 
 from models.canales import Canal
 from config.logging_conf import GOES_LOGGER_NAME
-from plotters_lib.plot import generar_imagen, get_metadatos
+from plotters_lib.plot import get_metadatos
+from plotters_lib.graficar_canal import generar_imagen
 
 logger = logging.getLogger(GOES_LOGGER_NAME)
 
