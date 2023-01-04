@@ -10,8 +10,11 @@ fi
 # Crea las variables de entorno
 source env.sh
 
-fecha_folder=`date -d $fecha +%Y_%m/%d`
-
+if [ "$(uname)" == "Darwin" ]; then
+    fecha_folder=`gdate -d $fecha +%Y_%m/%d`
+else
+    fecha_folder=`date -d $fecha +%Y_%m/%d`
+fi
 # Directorio de logs
 mkdir -p $LOGS/$fecha_folder
 
