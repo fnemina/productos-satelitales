@@ -15,12 +15,13 @@ import cartopy.crs as ccrs
 from netCDF4 import Dataset
 from osgeo import osr, gdal
 from plotters_lib.cpt_convert import load_cpt
+from PIL import Image
 
 from config.constants import EXTENT_WEBMET
 from config.logging_conf import GOES_LOGGER_NAME
 from wrf_api.goes_api_ingest import post_img_to_api
 
-from plotters_lib.plot import get_geo_t, convertir_negro_transparente
+from plotters_lib.plot import get_geo_t
 
 logger = logging.getLogger(GOES_LOGGER_NAME)
 
@@ -37,6 +38,19 @@ GOES16_EXTENT = [-5434894.885056,
 
 RESOLUTION = 1.
 
+def convertir_negro_transparente(ruta):
+    """
+    Convierte el color negro de una imagen a transparente.
+    """
+    img = Image.open(ruta)
+    img = img.convert("RGBA")
+    pixdata = img.load()
+    width, height = img.size
+    for y in range(height):
+        for x in range(width):
+            if pixdata[x, y] == (0, 0, 0, 255):
+                pixdata[x, y] = (0, 0, 0, 0)
+    img.save(ruta, "PNG")
 
 def generar_imagen_webmet(nombre, _metadatos, path_imagenes, canal, extent=EXTENT_WEBMET):
     start = t.time()
