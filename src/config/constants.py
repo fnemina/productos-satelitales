@@ -40,9 +40,10 @@ SHAPEFILES_ADEC_DEP_POL = f"{SHAPEFILES_ADEC}/departamentos_poligonos"
 SHAPEFILES_ADEC_URUGUAY = f"{SHAPEFILES_ADEC}/uruguay"
 # /media/disk/goes/goes-operativo/datos/shapefiles_adec/uruguay
 
-LOGO = f"{GOES_STATICS}/img/wug_txt2.png"
-LOGO_ADEC = f"{GOES_STATICS}/img/logo_inta_gulich_ohmc_conae.png"
-LOGO_FIRE = f"{GOES_STATICS}/img/logo_inta_gulich_ohmc_conae_fire_02.png"
+LOGO = f"{GOES_STATICS}/img/logo-gulich-unc-conae.png"
+LOGO_ADEC = f"{GOES_STATICS}/img/logo-gulich-unc-conae-vertical.png"
+#LOGO_FIRE = f"{GOES_STATICS}/img/logo_inta_gulich_ohmc_conae_fire_02.png" #TODO: get this file
+LOGO_FIRE = f"{GOES_STATICS}/img/logo-gulich-unc-conae.png"
 
 DOWNLOAD_MAX_TRY = 2
 DOWNLOAD_SLEEP_TRY = 30

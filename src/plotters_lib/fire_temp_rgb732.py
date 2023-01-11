@@ -168,7 +168,8 @@ def graficar_fire_temp(fecha, _canales, datos, mapas_out):  # , extent=EXTENT
         plt.legend(handles=[nubes], loc='center', bbox_to_anchor=(0.80, 0.05), shadow='True', facecolor='#FFFFFF')
         # logo
         img_logo = mplimg.imread(LOGO_FIRE)
-        ax.figure.figimage(img_logo, xo=1212.5, yo=200.0, origin='upper')
+        ax.figure.figimage(img_logo, xo=1247.5, yo=200.0, origin='upper')
+        #ax.figure.figimage(img_logo, xo=1212.5, yo=200.0, origin='upper')
         # ax.figure.figimage(img_logo, xo=625.0, yo=1375.0, origin='upper', zorder=1)
         logger.info(f"Guardando fire_rgb732 en {fire_img_path}")
         plt.savefig(fire_img_path, bbox_inches='tight', pad_inches=0.1, dpi=300)

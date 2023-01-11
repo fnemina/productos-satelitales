@@ -368,7 +368,7 @@ def graficar_lst(lst_nc_path: str, bcm_nc_path: str, img_path_salida: str, lst_g
                bbox_to_anchor=(1.07, 0.5), shadow='True', facecolor='#ffffb6')
 
     img_logo = mplimg.imread(LOGO_ADEC)
-    ax.figure.figimage(img_logo, xo=ax.figure.bbox.xmax - 130, yo=ax.figure.bbox.ymax - 380, origin='upper', zorder=1)
+    ax.figure.figimage(img_logo, xo=ax.figure.bbox.xmax - 100, yo=ax.figure.bbox.ymax - 400, origin='upper', zorder=1)
     plt.savefig(path_lst_img, bbox_inches='tight', pad_inches=0.1, dpi=160)  # Guardo la imagen en archivo png
     plt.close()
     file1.close()

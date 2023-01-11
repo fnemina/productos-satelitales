@@ -139,7 +139,8 @@ def graficar_heladas(lst_nc_path: str, img_path_salida: str, path_heladas_img: P
     plt.title(date_str + '\nHora local Argentina', fontsize=10, loc='right')
 
     img_logo = mplimg.imread(LOGO_ADEC)
-    ax.figure.figimage(img_logo, xo=ax.figure.bbox.xmax - 130, yo=ax.figure.bbox.ymax - 380, origin='upper', zorder=1)
+    ax.figure.figimage(img_logo, xo=ax.figure.bbox.xmax - 100, yo=ax.figure.bbox.ymax - 400, origin='upper', zorder=1)
+    #ax.figure.figimage(img_logo, xo=ax.figure.bbox.xmax - 130, yo=ax.figure.bbox.ymax - 380, origin='upper', zorder=1)
     # Guardo la imagen en archivo png
     logger.info(f"Guardando grafico de heladas en la ruta: {path_heladas_img}")
     plt.savefig(path_heladas_img, bbox_inches='tight', pad_inches=0.1, dpi=160)
